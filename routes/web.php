@@ -18,3 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('informasi', InformasiController::class);
+Route::get('/landing', function () {
+    return view('home/landing');
+});
+Route::get('/home', function () {
+    return view('home/home');
+});
+Route::get('/informasiUser', function () {
+    return view('home/informasi');
+});
