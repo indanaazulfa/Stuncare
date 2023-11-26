@@ -75,9 +75,9 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200" style="padding-top: 20px;">
-            <img src="assets/img/image4.jpg" class="img-fluid" alt="">
+            <img src="{{ asset('assets/img/image4.jpg') }}" class="img-fluid" alt="">
         </div>
-        
+       
         </div>
       </div>
     </section><!-- End About Section -->
@@ -104,7 +104,7 @@
 
           <div class="col-lg-4">
             <div class="post-box">
-              <div class="post-img"><img src="assets/img/image2.jpg" class="img-fluid" alt=""></div>
+              <div class="post-img"><img src="{{ asset('assets/img/image2.jpg') }}" class="img-fluid" alt=""></div>
               <span class="post-date"> 1 November 2023</span>
               <h3 class="post-title">Ciri-Ciri Anak Mengalami Stunting</h3>
               <a href="blog1.html" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
@@ -113,7 +113,7 @@
 
           <div class="col-lg-4">
             <div class="post-box">
-              <div class="post-img"><img src="assets/img/image3.jpg" class="img-fluid" alt=""></div>
+              <div class="post-img"><img src="{{ asset('assets/img/image3.jpg') }}" class="img-fluid" alt=""></div>
               <span class="post-date">1 November 2023</span>
               <h3 class="post-title">Bagaimana Cara Mencegah Stunting</h3>
               <a href="blog1.html" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
