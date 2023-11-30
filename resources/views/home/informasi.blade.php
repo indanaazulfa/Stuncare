@@ -47,7 +47,7 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
         <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
       <i class="mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
@@ -66,7 +66,7 @@
               <h2>"Apakah kalian tau apa itu stunting?"</h2>
               <p>Mari mengenal stunting  lebih dalam</p>
               <div class="text-center text-lg-start">
-                  <a href="blog1.html" class="readmore stretched-link mt-auto">
+                  <a href="/blog1" class="readmore stretched-link mt-auto">
                  <span>Selengkapnya</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
@@ -98,7 +98,7 @@
               <div class="post-img"><img src="assets/img/image1.jpg" class="img-fluid" alt=""></div>
               <span class="post-date">31 Oktober 2023</span>
               <h3 class="post-title">Faktor-Faktor Penyebab Stunting</h3>
-              <a href="blog1.html" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -107,7 +107,7 @@
               <div class="post-img"><img src="{{ asset('assets/img/image2.jpg') }}" class="img-fluid" alt=""></div>
               <span class="post-date"> 1 November 2023</span>
               <h3 class="post-title">Ciri-Ciri Anak Mengalami Stunting</h3>
-              <a href="blog1.html" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 
@@ -116,7 +116,7 @@
               <div class="post-img"><img src="{{ asset('assets/img/image3.jpg') }}" class="img-fluid" alt=""></div>
               <span class="post-date">1 November 2023</span>
               <h3 class="post-title">Bagaimana Cara Mencegah Stunting</h3>
-              <a href="blog1.html" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
             </div>
           </div>
 

@@ -27,3 +27,11 @@ Route::get('/home', function () {
 Route::get('/informasiUser', function () {
     return view('home/informasi');
 });
+
+Route::get('/informasi', function () {
+    return view('home/informasi');
+});
+
+Route::get('/blog1', function () {
+    return view('home/blog1');
+});

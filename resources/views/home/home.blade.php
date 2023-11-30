@@ -47,8 +47,8 @@
 
     <nav id="navbar" class="navbar">
       <ul>
-        <li><a class="nav-link scrollto active" href="home.html">Home</a></li>
-        <li><a class="nav-link scrollto" href="informasi.html">Informasi</a></li>
+        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
+        <li><a class="nav-link scrollto" href="/informasi">Informasi</a></li>
       <i class="mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
 
@@ -65,7 +65,7 @@
           <h6 data-aos="fade-up" data-aos-delay="400">Stuncare merupakan sebuah website yang dirancang khusus untuk memberikan edukasi dan informasi mengenai stunting kepada ibu-ibu yang masih memiliki anak dengan rentang usia batita hingga balita dan juga ibu yang baru melahirkan (ibu pasca lahir).</h6>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-              <a href="informasi.html" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+              <a href="/informasi" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                 <span>Cari tahu lebih banyak</span>
               </a>
             </div>
