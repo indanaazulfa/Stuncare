@@ -17,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('home/login');
+});
+
 Route::resource('informasi', InformasiController::class);
 Route::get('/landing', function () {
     return view('home/landing');
