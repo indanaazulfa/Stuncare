@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/login', function () {
-    return view('home/login');
+    return view('home/auth/login');
 });
 
 Route::resource('informasi', InformasiController::class);
