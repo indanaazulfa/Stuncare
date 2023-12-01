@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\NewsController;
@@ -28,6 +29,7 @@ Route::post('/register', [RegisterController::class, 'store'])->name('register.s
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('/informasi', InformasiController::class)->middleware('role:admin');
 
+    Route::get('/home', [HomeController::class, 'index'])->name('home')->middleware('role:user');
     Route::get('/news', [NewsController::class, 'index'])->name('news');
     Route::get('/news/{slug}', [NewsController::class, 'detail'])->name('news.detail')->middleware('role:user');
 
@@ -35,4 +37,3 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 Route::get('/', [LandingController::class, 'index'])->name('landing');
-Route::get('/home', [LandingController::class, 'index']);

@@ -26,7 +26,7 @@ class RedirectIfAuthenticated
                 if (Auth::user()->role == 'admin') {
                     return redirect()->to('/informasi');
                 } else if (Auth::user()->role == 'user') {
-                    return redirect()->route('news');
+                    return redirect()->route('home');
                 }
             }
         }

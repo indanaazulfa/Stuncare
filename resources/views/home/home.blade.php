@@ -49,6 +49,7 @@
       <ul>
         <li><a class="nav-link scrollto active" href="/home">Home</a></li>
         <li><a class="nav-link scrollto" href="/news">Informasi</a></li>
+        <li><a class="nav-link scrollto" href="{{ route('logout') }}">Logout</a></li>
       <i class="mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
 
