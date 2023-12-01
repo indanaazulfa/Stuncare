@@ -42,13 +42,6 @@
     <a href="index.html" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
     </a>
-
-    <nav id="navbar" class="navbar">
-      <ul>
-        <li><a class="nav-link scrollto active" href="/home">Home</a></li>
-        <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
-      <i class="mobile-nav-toggle"></i>
-    </nav><!-- .navbar -->
   </div>
 </header><!-- End Header -->
 

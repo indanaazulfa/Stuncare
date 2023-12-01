@@ -67,7 +67,7 @@ class InformasiController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Informasi $id)
+    public function show($id)
     {
         $data = informasi::where('idInformasi', $id)->first();
         return view('informasi.lihat')->with('data',$data);
