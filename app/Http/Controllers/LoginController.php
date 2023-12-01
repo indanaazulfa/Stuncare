@@ -11,4 +11,8 @@ class LoginController extends Controller
     public function index(){
         return view('auth.login');
     }
+
+    public function login_proses(Request $request){
+        dd($request -> all());
+    }
 }

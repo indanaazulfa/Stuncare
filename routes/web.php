@@ -21,6 +21,7 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('home/auth/login');
 });
+Route::post('login-proses',[LoginController::class,'login_proses']) -> name('login-proses');
 
 Route::resource('/informasi', InformasiController::class);
 

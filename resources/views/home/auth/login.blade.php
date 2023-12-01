@@ -34,7 +34,7 @@
           <span class="login100-form-title p-b-24" text-align="center"> Selamat Datang! </span>
 		  <span class="txt4 p-b-11"> Silahkan Login dan Akses Seluruh Informasi dari StunCare </span>
 
-          <form class="login100-form validate-form flex-sb flex-w">
+          <form class="login100-form validate-form flex-sb flex-w" action="{{ route('login-proses') }}" method="post">
             <span class="txt1 p-b-11"> Username </span>
             <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
               <input class="input100" type="text" name="username" />
