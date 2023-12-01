@@ -27,7 +27,7 @@
             <div class="mb-3 row">
                 <label for="isi" class="col-sm-2 col-form-label">Isi</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" name='isi' value="{{$data->isi}}" id="isi" style="height: 300px;">
+                    <input type="text" class="form-control" name='isi' value="{{$data->isi}}" id="isi">
                 </div>
             </div>
             <div class="mb-3 row">
