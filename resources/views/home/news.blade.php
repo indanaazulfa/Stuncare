@@ -49,12 +49,13 @@
       <ul>
         <li><a class="nav-link scrollto active" href="/home">Home</a></li>
         <li><a class="nav-link scrollto" href="#about">Informasi</a></li>
+        <li><a class="nav-link scrollto" href="{{ route('logout') }}">Logout</a></li>
       <i class="mobile-nav-toggle"></i>
     </nav><!-- .navbar -->
   </div>
 </header><!-- End Header -->
 
-  <main id="main">
+  <main id="main" class="mt-5">
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
 
@@ -63,10 +64,10 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
             <div class="content">
-              <h2>"Apakah kalian tau apa itu stunting?"</h2>
+              <h2>"{{ $fundamental->judul }}"</h2>
               <p>Mari mengenal stunting  lebih dalam</p>
               <div class="text-center text-lg-start">
-                  <a href="/blog1" class="readmore stretched-link mt-auto">
+                  <a href="{{ route('news.detail', $fundamental->slug) }}" class="readmore stretched-link mt-auto">
                  <span>Selengkapnya</span>
                   <i class="bi bi-arrow-right"></i>
                 </a>
@@ -75,7 +76,7 @@
           </div>
 
           <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200" style="padding-top: 20px;">
-            <img src="{{ asset('assets/img/image4.jpg') }}" class="img-fluid" alt="">
+            <img src="{{ $fundamental->gambar }}" class="img-fluid" alt="">
         </div>
        
         </div>
@@ -92,36 +93,23 @@
         </header>
 
         <div class="row">
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="assets/img/image1.jpg" class="img-fluid" alt=""></div>
-              <span class="post-date">31 Oktober 2023</span>
-              <h3 class="post-title">Faktor-Faktor Penyebab Stunting</h3>
-              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+          @forelse ($news as $item)
+            <div class="col-lg-4">
+              <div class="post-box">
+                <div class="post-img"><img src="{{ asset($item->gambar) }}" class="img-fluid" alt=""></div>
+                <span class="post-date">{{ date('d F Y', strtotime($item->tanggal)) }}</span>
+                <h3 class="post-title">{{ $item->judul }}</h3>
+                <a href="{{ route('news.detail', $item->slug) }}" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="{{ asset('assets/img/image2.jpg') }}" class="img-fluid" alt=""></div>
-              <span class="post-date"> 1 November 2023</span>
-              <h3 class="post-title">Ciri-Ciri Anak Mengalami Stunting</h3>
-              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
+          @empty
+            <div class="col-lg-12">
+              <div class="post-box">
+                <h3 class="post-title text-center">Tidak ada data</h3>
+              </div>
             </div>
-          </div>
-
-          <div class="col-lg-4">
-            <div class="post-box">
-              <div class="post-img"><img src="{{ asset('assets/img/image3.jpg') }}" class="img-fluid" alt=""></div>
-              <span class="post-date">1 November 2023</span>
-              <h3 class="post-title">Bagaimana Cara Mencegah Stunting</h3>
-              <a href="/blog1" class="readmore stretched-link mt-auto"><span>Selengkapnya</span><i class="bi bi-arrow-right"></i></a>
-            </div>
-          </div>
-
+          @endforelse
         </div>
-
       </div>
 
     </section><!-- End Recent Blog Posts Section -->

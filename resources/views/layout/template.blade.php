@@ -24,6 +24,7 @@
   <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <script src="{{ asset('assets/tinymce/tinymce.min.js') }}"></script>
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
@@ -38,10 +39,11 @@
  <!-- ======= Header ======= -->
  <header id="header" class="header fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
-
     <a href="" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
     </a>
+    {{-- logout --}}
+    <a href="{{ route('logout') }}" class="btn btn-outline-primary">Logout</a>
   </div>
 </header><!-- End Header -->
 
@@ -74,6 +76,7 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="{{ asset('assets/fslightbox/index.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>

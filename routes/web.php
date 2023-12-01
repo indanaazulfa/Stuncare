@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\LandingController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,31 +18,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('/login', [AuthController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'authenticate'])->name('authenticate')->middleware('guest');
+
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
+Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::resource('/informasi', InformasiController::class)->middleware('role:admin');
+
+    Route::get('/news', [NewsController::class, 'index'])->name('news');
+    Route::get('/news/{slug}', [NewsController::class, 'detail'])->name('news.detail')->middleware('role:user');
+
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 
-Route::get('/login', function () {
-    return view('home/auth/login');
-});
-Route::post('login-proses',[LoginController::class,'login_proses']) -> name('login-proses');
-
-Route::resource('/informasi', InformasiController::class);
-
-Route::get('/landing', function () {
-    return view('home/landing');
-});
-Route::get('/home', function () {
-    return view('home/home');
-});
-Route::get('/informasiUser', function () {
-    return view('home/news');
-});
-
-Route::get('/news', function () {
-    return view('home/news');
-});
-
-Route::get('/blog1', function () {
-    return view('home/blog1');
-});
+Route::get('/', [LandingController::class, 'index'])->name('landing');
+Route::get('/home', [LandingController::class, 'index']);

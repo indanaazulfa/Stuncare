@@ -15,11 +15,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('informasis', function (Blueprint $table) {
-            $table->integer('idInformasi');
-            $table->unique('idInformasi');
-            $table->date('tanggal');
+            $table->id();
+            $table->string('slug');
+            $table->string('gambar');
             $table->string('judul');
             $table->text('isi');
+            $table->date('tanggal');
+            $table->timestamps();
         });
     }
 

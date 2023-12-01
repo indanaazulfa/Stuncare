@@ -10,23 +10,29 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th class="col-md-3">Id Informasi</th>
-                    <th class="col-md-2">Tanggal</th>
-                    <th class="col-md-4">Judul</th>
-                    <th class="col-md-2">Aksi</th>
+                    <th>No.</th>
+                    <th>Gambar</th>
+                    <th>Tanggal</th>
+                    <th>Judul</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="align-middle">
                 <?php $i = $data->firstItem()?>
                 @foreach ($data as $item)
                 <tr>
-                    <td>{{$item->idInformasi}}</td>
+                    <td>{{$i}}</td>
+                    <td>
+                        <a href="{{ asset($item->gambar) }}" data-fslightbox="gallery-{{ $item->id }}">
+                            <img src="{{ asset($item->gambar) }}" alt="" class="img-fluid" style="width: 100px;">
+                        </a>
+                    </td>
                     <td>{{$item->tanggal}}</td>
                     <td>{{$item->judul}}</td>
                     <td>
-                        <a href='{{url('informasi/'.$item->idInformasi)}}' class="btn btn-primary btn-sm">View</a>
-                        <a href='{{url('informasi/'.$item->idInformasi.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
-                        <form onsubmit="return confirm('Yakin akan menghapus data?')" class='d-inline' action="{{url('informasi/'.$item->idInformasi)}}" method="post">
+                        <a href='{{url('informasi/'.$item->id)}}' class="btn btn-primary btn-sm">View</a>
+                        <a href='{{url('informasi/'.$item->id.'/edit')}}' class="btn btn-warning btn-sm">Edit</a>
+                        <form onsubmit="return confirm('Yakin akan menghapus data?')" class='d-inline' action="{{url('informasi/'.$item->id)}}" method="post">
                             @csrf
                             @method('DELETE')
                             <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>

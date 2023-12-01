@@ -5,115 +5,136 @@ namespace App\Http\Controllers;
 use App\Models\Informasi;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class InformasiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * 
-     */
     public function index()
     {
-        $data=informasi::orderBy('idInformasi', 'asc')->paginate(5);
+        $data = Informasi::latest()->paginate(5);
         return view('informasi.index')->with('data',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * 
-     */
     public function create()
     {
         return view('informasi.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     */
     public function store(Request $request)
     {
-        Session::flash('idInformasi',$request->idInformasi);
-        Session::flash('tanggal',$request->tanggal);
-        Session::flash('judul',$request->judul);
-        Session::flash('isi',$request->isi);
-
         $request->validate([
-            'idInformasi'=>'required|numeric|unique:informasis,idInformasi',
-            'tanggal'=>'required',
-            'judul'=>'required',
-            'isi'=>'required',
+            'tanggal' => 'required',
+            'judul' => 'required',
+            'isi' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
-            'idInformasi.required'=> 'Id Informasi wajib diisi',
-            'idInformasi.numeric'=> 'Id Informasi dalam bentuk angka',
-            'idInformasi.unique'=> 'Id Informasi telah berada di database',
-            'tanggal.required'=> 'Tanggal wajib diisi',
-            'judul.required'=> 'Judul Informasi wajib diisi',
-            'isi.required'=> 'Isi Informasi wajib diisi',
+            'tanggal.required' => 'Tanggal wajib diisi',
+            'judul.required' => 'Judul Informasi wajib diisi',
+            'isi.required' => 'Isi Informasi wajib diisi',
+            'gambar.required' => 'Gambar wajib diisi',
+            'gambar.image' => 'Gambar harus berupa file gambar',
+            'gambar.mimes' => 'Gambar harus berupa file gambar',
+            'gambar.max' => 'Gambar maksimal berukuran 2 MB',
         ]);
-        $data=[
-            'idInformasi'=>$request->idInformasi,
-            'tanggal'=>$request->tanggal,
-            'judul'=>$request->judul,
-            'isi'=>$request->isi,
+
+        $data = [
+            'tanggal' => $request->tanggal,
+            'judul' => $request->judul,
+            'isi' => $request->isi,
+            'gambar' => $this->storeImage($request->gambar, 'informasi'),
+            'slug' => $this->generateSlug($request->judul),
         ];
-        informasi::create($data);
+
+        Informasi::create($data);
+
         return redirect()->to('informasi')->with('success','Berhasil menambahkan data');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show($id)
     {
-        $data = informasi::where('idInformasi', $id)->first();
-        return view('informasi.lihat')->with('data',$data);
+        $informasi = Informasi::find($id);
+
+        return view('informasi.lihat', [
+            'data' => $informasi
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     */
-
-    public function edit(string $id) //untuk melakukan proses edit
+    public function edit($id) //untuk melakukan proses edit
     {
-        $data = informasi::where('idInformasi', $id)->first();
-        return view('informasi.edit')->with('data',$data);
+        $informasi = Informasi::find($id);
 
+        return view('informasi.edit', [
+            'data' => $informasi
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     */
     public function update(Request $request, string $id) //untuk menyimpan update data
     {
         $request->validate([
             'judul'=>'required',
             'isi'=>'required',
+            'tanggal'=>'required',
+            'gambar'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ],[
             'judul.required'=> 'Judul Informasi wajib diisi',
             'isi.required'=> 'Isi Informasi wajib diisi',
+            'tanggal.required'=> 'Tanggal wajib diisi',
+            'gambar.image'=> 'Gambar harus berupa file gambar',
+            'gambar.mimes'=> 'Gambar harus berupa file gambar',
+            'gambar.max'=> 'Gambar maksimal berukuran 2 MB',
         ]);
-        $data=[
+
+        $informasi = Informasi::find($id);
+
+        $data = [
             'judul'=>$request->judul,
             'isi'=>$request->isi,
+            'tanggal'=>$request->tanggal,
         ];
-        informasi::where('idInformasi', $id)->update($data);
+
+        if ($request->gambar) {
+            $data['gambar'] = $this->storeImage($request->gambar, 'informasi');
+            $this->deleteImage($informasi->gambar);
+        }
+
+        $informasi->update($data);
+
         return redirect()->to('informasi')->with('success','Berhasil melakukan update data');
     }
 
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     */
     public function destroy($id) //untuk melakukan pernghapusan data
     {
-        informasi::where('idInformasi', $id)->delete();
-        return redirect()->to('informasi')->with('success','Berhasil melakukan hapus data');
+        if ($id == 1) {
+            return redirect()->to('informasi')->with('error','Tidak dapat menghapus data');
+        }
+
+        $informasi = Informasi::find($id);
+        $this->deleteImage($informasi->gambar);
+        $informasi->delete();
+        return redirect()->to('informasi')->with('success','Berhasil menghapus data');
+    }
+
+    protected function storeImage($file, $folder) {
+        if (!Storage::exists('public/'.$folder)) {
+            Storage::makeDirectory('public/'.$folder);
+        }
+
+        $file->store('public/'.$folder);
+        $fileName = $file->hashName();
+
+        return 'storage/'.$folder.'/'.$fileName;
+    }
+
+    private function deleteImage($path) {
+        if (Storage::exists($path)) {
+            Storage::delete($path);
+        }
+    }
+
+    private function generateSlug($name) {
+        $slug = Str::slug($name, '-');
+        $slug_count = Informasi::where('slug', 'like', $slug . '%')->count();
+        return $slug_count ? "{$slug}-{$slug_count}" : $slug;
     }
 }
