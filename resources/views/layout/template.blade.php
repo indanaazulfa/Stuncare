@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Halaman Informasi - Stuncare</title>
+  <title>Admin StunCare</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +39,7 @@
  <header id="header" class="header fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-    <a href="index.html" class="logo d-flex align-items-center">
+    <a href="" class="logo d-flex align-items-center">
       <img src="assets/img/logo.png" alt="">
     </a>
   </div>
