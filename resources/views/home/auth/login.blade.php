@@ -57,7 +57,9 @@
             </div>
             <div class="container-login100-form-btn">
             <form action="" method="post">
-              <button class="login100-form-btn">Masuk</button>
+            <a href="/home" class="login100-form-btn">
+                <span>Masuk</span>
+              </a>
               </form>
             </div>
           </form>
