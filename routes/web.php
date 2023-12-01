@@ -22,7 +22,8 @@ Route::get('/login', function () {
     return view('home/auth/login');
 });
 
-Route::resource('informasi', InformasiController::class);
+Route::resource('/informasi', InformasiController::class);
+
 Route::get('/landing', function () {
     return view('home/landing');
 });
@@ -30,11 +31,11 @@ Route::get('/home', function () {
     return view('home/home');
 });
 Route::get('/informasiUser', function () {
-    return view('home/informasi');
+    return view('home/news');
 });
 
-Route::get('/informasi', function () {
-    return view('home/informasi');
+Route::get('/news', function () {
+    return view('home/news');
 });
 
 Route::get('/blog1', function () {
