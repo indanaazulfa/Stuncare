@@ -1,4 +1,4 @@
-<p align="center"><img src="{{ asset('assets/img/LOGO.png') }}" width="400" alt="Stuncare Logo"></a></p>
+<p align="center"><img src="{{ asset('images/Logo.png') }}" width="400" alt="Stuncare Logo"></a></p>
 
 ## About Laravel
 
