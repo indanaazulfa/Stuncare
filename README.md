@@ -1,8 +1,6 @@
-<p align="center">
-    <a href="assets/img/logo.png" class="logo d-flex align-items-center">
-      <img src="{{ ('assets/img/logo.png') }}" alt="">
-    </a>
-    </p>
+<h1>
+    Stuncare
+</h1>
 
 ## About Laravel
 
