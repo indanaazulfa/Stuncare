@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,10 +8,6 @@
   <title>Admin StunCare</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -40,7 +35,7 @@
  <header id="header" class="header fixed-top">
   <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
     <a href="" class="logo d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="">
+      <img src="{{ asset('assets/img/LOGO.png') }}" alt="">
     </a>
     {{-- logout --}}
     <a href="{{ route('logout') }}" class="btn btn-outline-primary">Logout</a>
@@ -59,9 +54,9 @@
         &copy; 2023; Copyright <strong><span>StunCare</span></strong>
       </div>
       <div class="credits">
-        <img src="assets/img/fb.png" alt=""style="width: 30px; height: 30px;">
-        <img src="assets/img/yt.png" alt="" style="width: 50px; height: 50px;">
-        <img src="assets/img/ig.png" alt=""style="width: 30px; height: 30px;">
+        <img src="{{ asset('assets/img/fb.png') }}" alt=""style="width: 30px; height: 30px;">
+        <img src="{{ asset('assets/img/yt.png') }}" alt="" style="width: 50px; height: 50px;">
+        <img src="{{ asset('assets/img/ig.png') }}" alt=""style="width: 30px; height: 30px;">
       </div>
     </div>
   </footer><!-- End Footer -->
