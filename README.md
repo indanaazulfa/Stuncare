@@ -8,9 +8,9 @@ Sebuah website yang dirancang khusus untuk memberikan edukasi dan informasi meng
 
 ## Tim Pengembang 
 
-Ashila Ghisara Dwinanda    (215150601111023) <br>
-Eiko Farah Diva Julen      (215150600111029) <br>
-Indana Zulfa               (215150601111013)
+1. Ashila Ghisara Dwinanda    (215150601111023)
+2. Eiko Farah Diva Julen      (215150600111029)
+3. Indana Zulfa               (215150601111013)
 
 ## Resource
 
