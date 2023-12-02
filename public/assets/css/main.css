@@ -1,27 +1,4 @@
 /*//////////////////////////////////////////////////////////////////
-[ FONT ]*/
-
-@font-face {
-  font-family: Raleway-Regular;
-  src: url("../fonts/raleway/Raleway-Regular.ttf");
-}
-
-@font-face {
-  font-family: Raleway-Medium;
-  src: url("../fonts/raleway/Raleway-Medium.ttf");
-}
-
-@font-face {
-  font-family: Raleway-SemiBold;
-  src: url("../fonts/raleway/Raleway-SemiBold.ttf");
-}
-
-@font-face {
-  font-family: Raleway-Bold;
-  src: url("../fonts/raleway/Raleway-Bold.ttf");
-}
-
-/*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
 * {
@@ -173,32 +150,32 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Raleway-SemiBold;
-  font-size: 13px;
+  font-family: "Nunito", sans-serif;
+  font-size: 15px;
   color: #555555;
   line-height: 1.4;
   text-transform: uppercase;
 }
 
 .txt2 {
-  font-family: Raleway-Regular;
+  font-family: "Nunito", sans-serif;
   font-size: 13px;
   color: #999999;
   line-height: 1.4;
 }
 
 .txt3 {
-  font-family: Raleway-Regular;
+  font-family: "Nunito", sans-serif;
   font-size: 13px;
   color: #555555;
   line-height: 1.4;
 }
 
 .txt4 {
-  font-family: Raleway-Regular;
-  font-size: 12px;
+  font-family:"Nunito", sans-serif;
+  font-size: 14px;
   color: #555555;
-  line-height: 1.4;
+  line-height: 1 ;
   text-align: center;
   width: 100%;
   margin-bottom: 10%;
@@ -243,7 +220,7 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Raleway-Medium;
+  font-family: "Nunito", sans-serif;
   font-size: 30px;
   color: #555555;
   line-height: 1;
@@ -360,9 +337,6 @@ iframe {
   color: #717ff5;
 }
 
-/*==================================================================
-[ Restyle Checkbox ]*/
-
 /*------------------------------------------------------------------
 [ Button ]*/
 .container-login100-form-btn {
@@ -376,9 +350,9 @@ iframe {
 }
 
 .login100-form-btn {
-  font-family: Raleway-Bold;
+  font-family: "Nunito", sans-serif;
   font-size: 16px;
-  color: #1b1b1b;
+  color: #ffffff;
   line-height: 1.2;
 
   display: -webkit-box;
@@ -389,9 +363,9 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  min-width: 150px;
+  width: 1000px;
   height: 55px;
-  background-color: #d0d4fc;
+  background-color: #4154f1;
   border-radius: 27px;
 
   -webkit-transition: all 0.4s;
@@ -401,7 +375,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #717ff5;
+  background-color: #8894f6;
 }
 /*------------------------------------------------------------------
 [ Alert validate ]*/

@@ -10,7 +10,8 @@
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" />
   <!--===============================================================================================-->
-  <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+   <!-- Google Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}" />
   <!--===============================================================================================-->
@@ -41,13 +42,13 @@
       <form class="login100-form validate-form flex-sb flex-w" action="{{ route('register.store') }}" method="post">
         @csrf
         <span class="txt1 p-b-11"> Nama Lengkap </span>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Nama is required">
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Nama is required">
           <input required class="input100" type="text" name="name" value="{{ old('name') }}" />
           <span class="focus-input100"></span>
         </div>
 
         <div class="txt1 p-b-11"> Username </div>
-        <div class="wrap-input100 validate-input m-b-36" data-validate="Username is required">
+        <div class="wrap-input100 validate-input m-b-12" data-validate="Username is required">
           <input required class="input100" type="text" name="username" value="{{ old('username') }}" />
           <span class="focus-input100"></span>
         </div>

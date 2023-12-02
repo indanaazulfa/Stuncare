@@ -59,14 +59,6 @@
 
   <main id="main" class="mt-5">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <!-- <section class="breadcrumbs">
-      <div class="container">
-        <h2>Blog Single</h2>
-
-      </div>
-    </section>End Breadcrumbs -->
-
     <!-- ======= Blog Single Section ======= -->
     <section id="blog" class="blog">
       <div class="container" data-aos="fade-up">
